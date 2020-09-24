@@ -3,7 +3,6 @@ package example.classManager.service.serviceImp;
 import example.classManager.Utils.ResponseSetting;
 import example.classManager.dao.CourseDao;
 import example.classManager.entity.Course;
-import example.classManager.entity.Student;
 import example.classManager.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

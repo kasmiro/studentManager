@@ -23,7 +23,7 @@ public class TeacherController {
     /**
      * @param teacher Teacher{t_id,t_name}
      * @desciption:
-     * @return:
+     * @return: message
      * @time: 2020/9/24 15:09
      */
     public void addTeacher(HttpServletRequest request, HttpServletResponse httpServletResponse, Teacher teacher) throws IOException {
@@ -33,7 +33,7 @@ public class TeacherController {
     @PostMapping("/findTeachersByKind")
     /**
      * @param kind:指通过老师的某个属性来搜索满足条件的老师，kind的值域为:{t_id,all}
-     * @param param:老师某个属性的具体值，当kind=all的时候，param可以为任意值
+     * @param param:老师某个属性的具体值，当kind=all的时候，param可以为任意值,但不能为null
      * @desciption:
      * @return: List<Teacher>类型的结果
      * @time: 2020/9/24 14:14

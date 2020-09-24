@@ -9,7 +9,6 @@ import example.classManager.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -43,12 +42,12 @@ public class TeacherServiceImp implements TeacherService {
         }
         try {
             teacherDao.add(teacher);
-            printWriter.println("添加学生成功！");
-            System.out.println("添加学生" + teacherDao.toString() + "成功！");
+            printWriter.println("添加教师成功！");
+            System.out.println("添加教师" + teacherDao.toString() + "成功！");
         } catch (Exception e) {
             e.printStackTrace();
-            printWriter.println("添加学生失败！");
-            System.out.println("添加学生" + teacher.toString() + "失败！");
+            printWriter.println("添加教师失败！");
+            System.out.println("添加教师" + teacher.toString() + "失败！");
         }
     }
 

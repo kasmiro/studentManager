@@ -21,7 +21,7 @@ public class CourseController {
 
     @PostMapping("/addCourse")
     /**
-     * @param course : Course{c_id,c_name,t_id}
+     * @param course : Course{course_id,course_name,t_id}
      * @desciption: 添加课程，返回添加成功或失败的信息
      * @return: 字符串形式的信息
      */

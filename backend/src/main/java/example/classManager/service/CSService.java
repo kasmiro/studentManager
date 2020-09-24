@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created on 2020/9/24
@@ -29,7 +28,7 @@ public interface CSService {
      * @return: 字符串类型的成功与否信息
     * @time: 2020/9/24 17:09
     */
-    public void delete(HttpServletRequest request, HttpServletResponse response,CS cs) throws IOException;
+    public void delete(HttpServletRequest request, HttpServletResponse response, CS cs) throws IOException;
 
 
     /**
@@ -39,6 +38,6 @@ public interface CSService {
     * @return:  List<CS>
     * @time: 2020/9/24 19:48
     */
-    public void findCssByKind(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "kind") String kind, @RequestParam(name = "param")String param) throws IOException;
+    public void findCssByKind(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "kind") String kind, @RequestParam(name = "param") String param) throws IOException;
 
 }

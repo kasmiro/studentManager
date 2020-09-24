@@ -1,13 +1,11 @@
 package example.classManager.service;
 
 import example.classManager.entity.Student;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created on 2020/9/24
@@ -32,7 +30,7 @@ public interface StudentService {
     * @return: List<Student>类型的结果
     * @time: 2020/9/24 14:14
     */
-    public void findStudentsByKind(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "kind") String kind,@RequestParam(name = "param")String param) throws IOException;
+    public void findStudentsByKind(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "kind") String kind, @RequestParam(name = "param") String param) throws IOException;
 
 
     /**
