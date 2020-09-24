@@ -1,2 +1,1 @@
-"# studentManager" 
-"# studentManager" 
+教务系统简版"
