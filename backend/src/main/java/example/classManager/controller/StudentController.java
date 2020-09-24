@@ -4,6 +4,7 @@ import example.classManager.entity.Student;
 import example.classManager.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,6 +16,7 @@ import java.io.IOException;
  * Created on 2020/9/23
  */
 @Controller
+@CrossOrigin
 public class StudentController {
     @Autowired
     StudentService studentService;

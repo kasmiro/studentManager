@@ -4,6 +4,7 @@ import example.classManager.entity.Class;
 import example.classManager.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -14,6 +15,7 @@ import java.io.IOException;
 /**
  * Created on 2020/9/23
  */
+@CrossOrigin
 @Controller
 public class ClassController {
     @Autowired
@@ -37,7 +39,7 @@ public class ClassController {
      * @return: List<Class>类型的结果
      * @time: 2020/9/24 14:14
      */
-    public void findClassByKind(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "kind") String kind, @RequestParam(name = "param") String param) throws IOException {
+    public void findClassByKind(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "kind") String kind, @RequestParam(name = "param",required = false) String param) throws IOException {
         classService.findClassByKind(request, response, kind, param);
     }
 
