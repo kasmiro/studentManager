@@ -1,4 +1,4 @@
-import  "babel-polyfill";
+import "babel-polyfill";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
@@ -7,8 +7,9 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 import 'nprogress/nprogress.css'
 import 'antd-mobile/dist/antd-mobile.less'
+import RouterView from './backRouter';
 import Stores from './store/Stores'
-
+import Student from './modules/student'
 import 'braft-editor/dist/index.css'
 
 moment.locale('zh-cn');
@@ -18,7 +19,8 @@ class App extends React.Component {
     render() {
         return (
             <ConfigProvider locale={zhCN}>
-                <div style={{height:"100%",minWidth:1200}} {...Stores}>
+                <div style={{ height: "100%", minWidth: 1200 }}>
+                    <RouterView />
                 </div>
             </ConfigProvider>
 

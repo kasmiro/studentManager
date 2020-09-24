@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="false"/>
+        <setting name="lazyLoadingEnabled" value="false"/>
+        <setting name="defaultStatementTimeout" value="25"/>
+        <setting name="defaultFetchSize" value="100"/>
+    </settings>
+    <typeAliases>
+        <!--    别名，降低冗余-->
+        <!--        <typeAlias alias="1" type="z.x.1"/>-->
+        <!--        在xxx包下搜索需要的bean，可为类指定别名@Alias("author")，默认为首字母小写的bean名,可以在mapper.xml中使用-->
+<!--        <typeAlias type="org.ssm.example.POJO.Employee" alias="emp"/>-->
+    </typeAliases>
+</configuration>
