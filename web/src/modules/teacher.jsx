@@ -127,7 +127,7 @@ class Teacher extends Component {
         ];
 
         return (
-            <div className="contentBg">
+            <div>
                 <FolderButtonSection
                     handleRefreshThisPage={this.handleSearch.bind(this)}
                     handleResetThisPageData={this.handleReset.bind(this)}

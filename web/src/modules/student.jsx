@@ -17,7 +17,7 @@ class Student extends Component {
     }
     componentDidMount() {
         // this.props.Stores.handleGetAllCommunity();
-        this.props.Stores.handleGetStudent();
+        this.props.Stores.handleGetStudent('all');
     }
 
     //处理筛选数据
@@ -139,7 +139,7 @@ class Student extends Component {
         ];
 
         return (
-            <div className="contentBg">
+            <div>
                 <FolderButtonSection
                     handleRefreshThisPage={this.handleSearch.bind(this)}
                     handleResetThisPageData={this.handleReset.bind(this)}

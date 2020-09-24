@@ -31,15 +31,14 @@ class CommunityStore {
     @observable studentData=[];
     //学生数据
     @observable teacherData=[];
-    @action handleGetStudent = () => {
-        Axios.Get_Common("", {
-            s_name:this.s_name,
-            s_id:this.s_id,
-            major:this.major,
-            class_id:this.class_id,
+    @action handleGetStudent = (type) => {
+        Axios.Post_Common("/findStudentsByKind", {
+            kind:type,
+            param:'',
         }).then(res => {
-            if (res.data.status.code === 1) {
-            }
+            console.log(res)
+            // if (res.data.status.code === 1) {
+            // }
         })
     }
     @action handleGetTeacher = () => {

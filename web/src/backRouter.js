@@ -20,15 +20,15 @@ function Loading(props) {
         return null;
     }
 }
-const Student = Loadable({
-    loader:() => import('./modules/student'),
+const Index = Loadable({
+    loader:() => import('./modules/index'),
     loading:Loading,
     delay:800,
 });
 const RouterView =(
     <Router history={hashHistory} >
-        <Route path="/student" component={Student} />
-        <Redirect from="*" to="/student" />
+        <Route path="/index" component={Index} />
+        <Redirect from="*" to="/index" />
     </Router>
 );
 

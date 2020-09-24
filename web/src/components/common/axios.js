@@ -66,33 +66,33 @@ const Request = {};
 
 Request.Get_Common = function (url, data = {}) {
     console.log('YIYI%cGet_Common', "color: #0000FF;", url, JSON.stringify(data));
-     return AxiosInstance.get('/api' + url+"?"+qs.stringify(data, { arrayFormat: 'repeat' }))
+     return AxiosInstance.get( url+"?"+qs.stringify(data, { arrayFormat: 'repeat' }))
 };
 
 Request.Get_Rest = function (url, data = {}) {
     console.log('YIYI%cGet_Rest', "color: #0000FF;", url, JSON.stringify(data));
     return AxiosInstance.get(
-        '/api' + url+"/"+data.id
+         url+"/"+data.id
     )
 };
 Request.Delete_Common = function (url, data = {}) {
     console.log('YIYI%cDelete_Common', "color: #0000FF;", url, JSON.stringify(data));
     return AxiosInstance.delete(
-        '/api' + url+"?"+qs.stringify(data),
+         url+"?"+qs.stringify(data),
 
     )
 };
 Request.Delete_Rest = function (url, data = {}) {
     console.log('YIYI%cDelete_Rest', "color: #0000FF;", url, JSON.stringify(data));
     return AxiosInstance.delete(
-        '/api' + url+"/"+data.id
+         url+"/"+data.id
     )
 };
 
 Request.Delete_Common = function (url, data = {}) {
     console.log('YIYI%cDelete_Common', "color: #0000FF;", url, JSON.stringify(data));
     return AxiosInstance.delete(
-        '/api' + url+"?"+qs.stringify(data)
+         url+"?"+qs.stringify(data)
     )
 };
 
@@ -100,7 +100,7 @@ Request.Delete_Common = function (url, data = {}) {
 Request.Put_Common = function (url, data = {}) {
     console.log('YIYI%cPut_Common', "color: #0000FF;", url, JSON.stringify(data));
     return AxiosInstance.put(
-        '/api' + url,data, {
+         url,data, {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }
     )
@@ -108,7 +108,7 @@ Request.Put_Common = function (url, data = {}) {
 Request.Put_JSON = function (url, data = {}) {
     console.log('YIYI%cPut_JSON', "color: #0000FF;", url,data );
     return AxiosInstance.put(
-        '/api' + url,data, {
+         url,data, {
             headers: {'Content-Type': 'application/json'}
         }
     )
@@ -116,7 +116,7 @@ Request.Put_JSON = function (url, data = {}) {
 Request.Get_JSON = function (url, data = {}) {
     console.log('YIYI%cGet_Common', "color: #0000FF;", url, JSON.stringify(data));
     return AxiosInstance.get(
-        '/api' + url,data, {
+         url,data, {
             headers: {'Content-Type': 'application/json'}
         }
     )
@@ -125,7 +125,7 @@ Request.Get_JSON = function (url, data = {}) {
 Request.Post_Common = function (url, data = {}) {
     console.log('YIYI%cPost_Common', "color: #0000FF;", url, JSON.stringify(data));
     return AxiosInstance.post(
-        '/api' + url,data, {
+         url,data, {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }
     )
@@ -134,7 +134,7 @@ Request.Post_Common = function (url, data = {}) {
 Request.Post_JSON = function (url, data = {}) {
     console.log('YIYI%cPost_Common', "color: #0000FF;", url,data );
     return AxiosInstance.post(
-        '/api' + url,data, {
+         url,data, {
             headers: {'Content-Type': 'application/json'}
         }
     )
