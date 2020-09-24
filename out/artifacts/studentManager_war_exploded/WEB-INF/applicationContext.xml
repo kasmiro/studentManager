@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!-- 配置开启基于注解的解析器(主要针对@Service,@Repository,@Component,不包括注解@Controller) -->
+
+
+
+
+    <context:component-scan use-default-filters="true" base-package="example.classManager.service">
+
+        <!-- 配置对于那些注解不进行扫描出来,这里指的是对于@Controller注解不处理 -->
+
+
+        <context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
+
+    </context:component-scan>
+
+
+    <!-- 配置开启依赖注入的注解解析器 -->
+
+
+    <context:annotation-config/>
+
+    <!-- 未来实现数据库连接信息和配置文件的分离(解耦),需要进行导入 -->
+
+
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!-- 配置数据库连接池的相关信息，这里采用的是阿里的Druid数据库连接池技术 -->
+
+
+
+    <bean class="com.alibaba.druid.pool.DruidDataSource" id="druidDataSource">
+
+        <!-- 配置数据库连接的相关信息 -->
+
+
+        <property value="${jdbc.driver}" name="driverClassName"/>
+
+        <property value="${jdbc.url}" name="url"/>
+
+        <property value="${jdbc.username}" name="username"/>
+
+        <property value="${jdbc.password}" name="password"/>
+
+        <!-- 配置初始化的连接数 -->
+
+
+        <property value="${jdbc.initialSize}" name="initialSize"/>
+
+        <!-- 配置数据库连接池的最大连接数 -->
+
+
+        <property value="${jdbc.maxActive}" name="maxActive"/>
+
+
+        <!-- 配置最大等待连接时间，单位是毫秒 -->
+
+
+        <property value="${jdbc.maxWait}" name="maxWait"/>
+
+    </bean>
+
+    <!-- 配置SqlSessionFactory,该类在mybatis-spring.jar包中 -->
+
+
+
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+
+        <property name="dataSource" ref="druidDataSource"/>
+
+        <!-- 配置spring整合mybatis（指定所要加载的mybatis框架的核心配置文件路径及名称) -->
+
+        <property value="classpath:mybatis-config.xml" name="configLocation"/>
+
+        <!-- 配置属性mapperLocations，用来指定要加载那些映射文件（指定接口类的代理实现映射文件） -->
+
+
+        <property value="classpath:mappers/*.xml" name="mapperLocations"/>
+
+    </bean>
+
+    <!-- 配置以自动扫描的形式来装配Mybatis中的映射器(注册Mapper扫描配置器),被@Mapper注解所修饰的接口类，会自动的产生接口的代理实现 -->
+
+
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+
+        <!-- 通过配置sqlSessionFactoryBeanName属性，用来指定sqlSessionFactory的名称 -->
+
+
+        <property value="sqlSessionFactory" name="sqlSessionFactoryBeanName"/>
+
+        <!-- 通过配置basePackage属性，用来指定dao层接口所在的包名称,因为要 自动产生接口类的代理实现 -->
+
+
+        <property value="example.classManager.dao" name="basePackage"/>
+
+    </bean>
+
+    <!-- 配置事务管理器类,该类在spring-jdbc.jar包中 -->
+
+
+
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="txTransactionManager">
+
+        <!-- 通过属性dataSource来指定所依赖的数据源 -->
+
+
+        <property name="dataSource" ref="druidDataSource"/>
+
+    </bean>
+
+    <!-- 配置开启基于注解方式的事务管理的解析器 -->
+
+
+    <tx:annotation-driven transaction-manager="txTransactionManager"/>
+
+    <!-- 配置一个可以执行批量的sqlSession，该类在mybatis-spring.jar包中 -->
+
+
+
+    <bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSessionTemplate">
+
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+
+        <constructor-arg value="BATCH" name="executorType"/>
+
+    </bean>
+
+
+
+
+</beans>

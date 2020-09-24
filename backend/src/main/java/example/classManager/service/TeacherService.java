@@ -1,8 +1,8 @@
 package example.classManager.service;
 
 import example.classManager.entity.Teacher;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -29,7 +29,7 @@ public interface TeacherService {
      * @return: List<Teacher>类型的结果
      * @time: 2020/9/24 14:14
      */
-    public void findTeachersByKind(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "kind") String kind, @RequestParam(name = "param")String param) throws IOException;
+    public void findTeachersByKind(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "kind") String kind, @RequestParam(name = "param") String param) throws IOException;
 
 
     /**
@@ -38,7 +38,7 @@ public interface TeacherService {
     * @return: Json格式的Class
     * @time: 2020/9/24 15:18
     */
-    public void getClassById(HttpServletRequest request, HttpServletResponse response,@RequestParam(name = "t_id")String t_id) throws IOException;
+    public void getClassById(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "t_id") String t_id) throws IOException;
 
 
 
@@ -48,7 +48,7 @@ public interface TeacherService {
     * @return: Json格式的List<Course>
     * @time: 2020/9/24 15:20
     */
-    public void getCoursesById(HttpServletRequest request, HttpServletResponse response,@RequestParam(name = "t_id")String t_id) throws IOException;
+    public void getCoursesById(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "t_id") String t_id) throws IOException;
 
 
     /**

@@ -3,7 +3,6 @@ package example.classManager.service.serviceImp;
 import example.classManager.Utils.ResponseSetting;
 import example.classManager.dao.ClassDao;
 import example.classManager.entity.Class;
-import example.classManager.entity.Course;
 import example.classManager.entity.Student;
 import example.classManager.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +40,12 @@ public class ClassServiceImp implements ClassService {
         }
         try {
             classDao.add(c);
-            printWriter.println("添加学生成功！");
-            System.out.println("添加学生" + c.toString() + "成功！");
+            printWriter.println("添加班级成功！");
+            System.out.println("添加班级" + c.toString() + "成功！");
         } catch (Exception e) {
             e.printStackTrace();
             printWriter.println("添加学生失败！");
-            System.out.println("添加学生" + c.toString() + "失败！");
+            System.out.println("添加班级" + c.toString() + "失败！");
         }
     }
 

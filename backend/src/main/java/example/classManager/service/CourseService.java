@@ -1,8 +1,6 @@
 package example.classManager.service;
 
-import example.classManager.entity.Class;
 import example.classManager.entity.Course;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +27,7 @@ public interface CourseService {
      * @return: List<Course>类型的结果
      * @time: 2020/9/24 14:14
      */
-    public void findCourseByKind(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "kind") String kind, @RequestParam(name = "param")String param) throws IOException;
+    public void findCourseByKind(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "kind") String kind, @RequestParam(name = "param") String param) throws IOException;
 
 
     /**
@@ -38,7 +36,7 @@ public interface CourseService {
     * @return: List<CS>
     * @time: 2020/9/24 17:00
     */
-    public void getCSById(HttpServletRequest request,HttpServletResponse response,String course_id);
+    public void getCSById(HttpServletRequest request, HttpServletResponse response, String course_id);
 
     /**
      * @desciption: 更新课程信息
@@ -46,7 +44,7 @@ public interface CourseService {
      * @return:
      * @time: 2020/9/24 16:39
      */
-    public void updateCourse(HttpServletRequest request,HttpServletResponse response,Course course) throws IOException;
+    public void updateCourse(HttpServletRequest request, HttpServletResponse response, Course course) throws IOException;
 
 
     /**
@@ -55,5 +53,5 @@ public interface CourseService {
      * @return:
      * @time: 2020/9/24 16:39
      */
-    public void deleteCourse(HttpServletRequest request,HttpServletResponse response,Course course) throws IOException;
+    public void deleteCourse(HttpServletRequest request, HttpServletResponse response, Course course) throws IOException;
 }

@@ -4,7 +4,9 @@ import example.classManager.entity.Student;
 import example.classManager.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +16,7 @@ import java.io.IOException;
  * Created on 2020/9/23
  */
 @Controller
+@CrossOrigin
 public class StudentController {
     @Autowired
     StudentService studentService;
@@ -62,7 +65,7 @@ public class StudentController {
      * @return: 返回成功与否的结果
      * @time: 2020/9/24 14:47
      */
-    public void deleteStudent(HttpServletRequest request, HttpServletResponse httpServletResponse,Student student) throws IOException {
+    public void deleteStudent(HttpServletRequest request, HttpServletResponse httpServletResponse, Student student) throws IOException {
         studentService.deleteStudent(request, httpServletResponse, student);
     }
 }
